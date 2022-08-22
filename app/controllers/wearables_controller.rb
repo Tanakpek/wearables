@@ -1,0 +1,2 @@
+class WearablesController < ApplicationController
+end
