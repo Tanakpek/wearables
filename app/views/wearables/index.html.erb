@@ -1,0 +1,10 @@
+<h1>This is the wearable index</h1>
+
+<% @wearables.each do |w| %>
+<h3> title: <%= w.title %> </h3>
+<h5> description: <%= w.description %> </h5>
+<h5> brand: <%= w.brand %> </h5>
+<h5> category: <%= w.category %> </h5>
+<h5> price: €<%= w.price %> </h5>
+<br>
+<% end %>
