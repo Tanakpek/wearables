@@ -6,4 +6,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+
+  resources :wearables  do
+    resources :bookings, only: [:new, :create] #dont forget patch
+  end
+
+  delete '/bookings/:booking_id', to: 'bookings_controller#delete'
+
 end
