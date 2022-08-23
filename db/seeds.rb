@@ -33,9 +33,20 @@ w2.photos.attach(io: img_levis, filename: "levis1.png", content_type: "image/png
 w2.photos.attach(io: img_levis2, filename: "levis2.png", content_type: "image/png")
 w2.save!
 
+img_watch = URI.open("http://res.cloudinary.com/mcgill-university/image/upload/v1661256060/masq7bnynqbmffigxj7w.jpg")
+w3.photos.attach(io: img_watch, filename: "watch1.png", content_type: "image/png")
 w3.save!
+
+img_polo = URI.open("http://res.cloudinary.com/mcgill-university/image/upload/v1661256170/dqv4lcsw4aee7rzkhhly.jpg")
+w4.photos.attach(io: img_polo, filename: "polo.png", content_type: "image/png")
 w4.save!
+
+img_watch2 = URI.open("http://res.cloudinary.com/mcgill-university/image/upload/v1661256225/wfxsbgrimdwwwq459lr7.jpg")
+w5.photos.attach(io: img_watch2, filename: "watch2.png", content_type: "image/png")
 w5.save!
+
+img_primark = URI.open("http://res.cloudinary.com/mcgill-university/image/upload/v1661256287/vynnzu0k38xomnezhyyf.jpg")
+w6.photos.attach(io: img_primark, filename: "primark.png", content_type: "image/png")
 w6.save!
 
 Booking.create!(user: marius, wearable: w1, start_date: Date.today - 29, end_date: Date.today - 10, status: "unconfirmed")
