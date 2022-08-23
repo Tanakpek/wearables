@@ -1,7 +1,9 @@
 <h1>This is the wearable index</h1>
 
+<h5><%= link_to "Add Wearable", new_wearable_path, class: "btn btn-success" %></h5>
+
 <% @wearables.each do |w| %>
-<h3> title: <%= w.title %> </h3>
+<h3> title: <%= w.title %> <%= link_to "link", wearable_path(w) %></h3>
 <h5> description: <%= w.description %> </h5>
 <h5> brand: <%= w.brand %> </h5>
 <h5> category: <%= w.category %> </h5>
