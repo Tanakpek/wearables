@@ -8,13 +8,28 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <link rel="stylesheet" href="./components/_index.scss">
+    <%# <link rel="stylesheet" href="./components/_index.scss"> %>
   </head>
   <body>
-    <nav>
-      <div class="d-flex justify-content-between m-4">
-        <a href="home-page">Wearables</a>
-        <button id="add-wearable">Add wearable</button>
+    <nav class="border-bottom sticky">
+      <div class="d-flex justify-content-between d-flex m-4">
+        <a class="d-flex align-items-center text-decoration-none" href="home-page">Logo</a>
+        <div class="d-inline-flex">
+          <span class="d-flex align-items-center m-2">UserName</span>
+
+            <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Sign Out</a></li>
+              <li><a class="dropdown-item" href="#">My account</a></li>
+              <li><a class="dropdown-item" href="#">My bookings</a></li>
+            </ul>
+          </div>
+
+        </div>
+        </div>
       </div>
     </nav>
     <p class="notice"><%= notice %></p>
