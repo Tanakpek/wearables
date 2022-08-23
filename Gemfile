@@ -1,6 +1,9 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+#persistent image storage
+gem 'cloudinary'
+
 ruby "3.1.2"
 
 gem 'devise'

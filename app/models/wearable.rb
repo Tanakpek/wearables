@@ -3,4 +3,5 @@ class Wearable < ApplicationRecord
   has_many :bookings
   validates :brand, :category, :price, :description, :title, presence: true
   validates :category, inclusion: { in: ["watch", "jacket", "glassed"]}
+  has_many_attached :photos
 end
