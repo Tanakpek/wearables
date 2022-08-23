@@ -4,6 +4,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 #persistent image storage
 gem 'cloudinary'
 
+gem 'pundit'
+
+#calendar for bookings
+gem "simple_calendar", "~> 2.4"
+
 ruby "3.1.2"
 
 gem 'devise'

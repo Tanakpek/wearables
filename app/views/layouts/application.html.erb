@@ -8,12 +8,13 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <link rel="stylesheet" href="./components/_index.scss">
+    <!--<link rel="stylesheet" href="./components/_index.scss"> -->
   </head>
   <body>
     <nav>
       <div class="d-flex justify-content-between m-4">
-        <a href="home-page">Wearables</a>
+        <a href='/'>Home</a>
+        <a href="/wearables">Wearables</a>
         <button id="add-wearable">Add wearable</button>
       </div>
     </nav>
