@@ -6,4 +6,6 @@
 <h5> category: <%= @wearable.category %> </h5>
 <h5> price: €<%= @wearable.price %> </h5>
 
+<%= cl_image_tag @wearable.photos[0].key, height: 300, width: 400, crop: :fill %>
+
 <h5><%= link_to "Edit Wearable", edit_wearable_path(@wearable), class: "btn btn-success" %></h5>
