@@ -1,3 +1,19 @@
-<%= month_calendar do |date| %>
-  <%= date %>
-<% end %>
+
+<div data-controller="bookings">
+  <%= month_calendar events: @bookings_for_wearable,attribute: :start_date, end_attribute: :end_date do |date| %>
+    <%= date  %>
+    <% available = true  %>
+    <% @bookings_for_wearable.each do |d| %>
+      <% if (date <= d.end_date && date >= d.start_date) || (date <= Date.today) %>
+          <% available = false %>
+          <% break %>
+      <% end %>
+    <% end  %>
+
+    <% if available  %>
+      <button data-action="click->bookings#add">
+    <% end %>
+
+
+  <% end %>
+</div>
