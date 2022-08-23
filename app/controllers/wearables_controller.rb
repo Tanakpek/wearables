@@ -41,5 +41,5 @@ class WearablesController < ApplicationController
   def params_wearable
     params.require(:wearable).permit(:title, :description, :brand, :category, :price, photos: [])
   end
->>>>>>> 6f6b714a68c4c6a90bd55a42ffe9157b26cd8e25
+
 end
