@@ -9,6 +9,6 @@
 
 <%= cl_image_tag @wearable.photos[0].key, height: 300, width: 400, crop: :fill %>
 
-<h5><%= link_to "Edit Wearable", edit_wearable_path(@wearable), class: "btn btn-success" %></h5>
+<h5><%= link_to "Edit Wearable", edit_wearable_path(@wearable), class: "btn btn-success" if policy(@wearable).edit? %></h5>
 
 <%= link_to "Get it", new_wearable_booking_path(@wearable), class: "btn btn-primary"  %>
