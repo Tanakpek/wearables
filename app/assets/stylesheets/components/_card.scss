@@ -1,0 +1,27 @@
+.card-design {
+display: flex;
+background-color: white;
+width: 400px;
+border-radius: 10px;
+box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+justify-content: space-between;
+
+  h4 {
+    font-size: 14px;
+    margin: 0px;
+  }
+
+  h5 {
+    margin: 0px;
+  }
+
+  img {
+    border-radius: 0 10px 10px 0;
+  }
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

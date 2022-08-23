@@ -2,16 +2,20 @@
 
 <h5><%= link_to "Add Wearable", new_wearable_path, class: "btn btn-success" %></h5>
 
-<% @wearables.each do |w| %>
-  <div>
-  `<%= link_to wearable_path(w)  do %>`
-    <h3><%= w.title %> </h3>
-    <h5> description: <%= w.description %> </h5>
-    <h5> brand: <%= w.brand %> </h5>
-    <h5> size: <%= w.size %> </h5>
-    <h5> category: <%= w.category %> </h5>
-    <h5> price: €<%= w.price %> </h5>
-  <% end%>
+<div class="container">
+  <div class="row row-cols-auto">
+      <% @wearables.each do |w| %>
+        <div class="card-design col-l m-3 pe-0">
+          <div class="ps-3 card-details">
+            <div>
+              <h5 class= "pe-3 pt-3"> <strong> <%= w.title %> </strong></h5>
+              <h4> category: <%= w.category %></h4>
+              <h4> brand: <%= w.brand %></h4>
+            </div>
+            <h4 class="pb-3"> <strong> €<%= w.price %> </strong></h4>
+          </div>
+          <%= cl_image_tag w.photos[0].key, height: 200, width: 130, crop: :fill %>
+        </div>
+      <% end %>
   </div>
-<br>
-<% end %>
+</div>
