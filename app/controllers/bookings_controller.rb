@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
 
   def new
     @wearable = Wearable.find_by_id(params[:wearable_id])
+    authorize @wearable
     @booking = Booking.new
     @bookings_for_wearable = Booking.where(wearable: @wearable, status: 'confirmed')
   end

@@ -1,6 +1,7 @@
 
-<div data-controller="bookings">
+<div>
   <%= month_calendar events: @bookings_for_wearable,attribute: :start_date, end_attribute: :end_date do |date| %>
+  <div data-controller="bookings" data-bookings-target="date">
     <%= date  %>
     <% available = true  %>
     <% @bookings_for_wearable.each do |d| %>
@@ -11,9 +12,9 @@
     <% end  %>
 
     <% if available  %>
-      <button data-action="click->bookings#add">
+      <button data-action="click->bookings#add" >
+
     <% end %>
-
-
+  </div>
   <% end %>
 </div>
