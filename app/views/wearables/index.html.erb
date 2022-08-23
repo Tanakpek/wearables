@@ -5,17 +5,19 @@
 <div class="container">
   <div class="row row-cols-auto">
       <% @wearables.each do |w| %>
-        <div class="card-design col-l m-3 pe-0">
-          <div class="ps-3 card-details">
-            <div>
-              <h5 class= "pe-3 pt-3"> <strong> <%= w.title %> </strong></h5>
-              <h4> category: <%= w.category %></h4>
-              <h4> brand: <%= w.brand %></h4>
+        <%= link_to wearable_path(w) do %>
+          <div class="card-design col m-3 pe-0">
+            <div class="ps-3 card-details">
+              <div>
+                <h5 class= "pe-3 pt-3"> <strong> <%= w.title %> </strong></h5>
+                <h4> category: <%= w.category %></h4>
+                <h4> brand: <%= w.brand %></h4>
+              </div>
+              <h4 class="pb-3"> <strong> €<%= w.price %> </strong></h4>
             </div>
-            <h4 class="pb-3"> <strong> €<%= w.price %> </strong></h4>
+            <%= cl_image_tag w.photos[0].key, height: 200, width: 130, crop: :fill %>
           </div>
-          <%= cl_image_tag w.photos[0].key, height: 200, width: 130, crop: :fill %>
-        </div>
+        <% end %>
       <% end %>
   </div>
 </div>
