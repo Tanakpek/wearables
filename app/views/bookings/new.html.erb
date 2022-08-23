@@ -1,20 +1,12 @@
 
-<div>
-  <%= month_calendar events: @bookings_for_wearable,attribute: :start_date, end_attribute: :end_date do |date| %>
-  <div data-controller="bookings" data-bookings-target="date">
-    <%= date  %>
-    <% available = true  %>
-    <% @bookings_for_wearable.each do |d| %>
-      <% if (date <= d.end_date && date >= d.start_date) || (date <= Date.today) %>
-          <% available = false %>
-          <% break %>
-      <% end %>
-    <% end  %>
 
-    <% if available  %>
-      <button data-action="click->bookings#add" >
 
+<div id='flat-booking-dates' data-unavailable="<%= @wearable.unavailable_dates.to_json %>">
+    <% if current_user.id != @wearable.user_id  %>
+       <%= simple_form_for([@wearable, @booking]) do |f| %>
+           <%= f.input :start_date, as: :string, type: :text %>
+           <%= f.input :end_date, as: :string, type: :text %>
+           <%= f.submit "Book", class: "btn btn-primary" %>
+        <% end %>
     <% end %>
-  </div>
-  <% end %>
-</div>
+ </div>
