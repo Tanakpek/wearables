@@ -1,6 +1,4 @@
 
-
-
 <div id='flat-booking-dates' data-unavailable="<%= @wearable.unavailable_dates.to_json %>">
     <% if current_user.id != @wearable.user_id  %>
        <%= simple_form_for([@wearable, @booking]) do |f| %>
