@@ -1,26 +1,16 @@
 
 <%= simple_form_for(@wearable) do |f| %>
-  <%= f.label :title, "Title:" %>
   <%= f.input :title, as: :string %>
 
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
 
-  <%= f.label :description, "Description:" %>
   <%= f.input :description, as: :string %>
 
-  <%= f.label :brand, "brand:" %>
   <%= f.input :brand, as: :string %>
 
-  <%= f.label :price, "price:" %>
+  <%= f.input :label, as: :string %>
+
   <%= f.input :price, as: :float %>
-
-
-
-
-
-
-
-
 
 
   <%= f.submit "Submit"%>
