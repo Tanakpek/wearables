@@ -3,6 +3,13 @@ class WearablesController < ApplicationController
   def index
     @wearables = policy_scope(Wearable)
     @wearables = Wearable.all
+
+    @markers = @wearables.geocoded.map do |wearable|
+      {
+        lat: wearable.latitude,
+        lng: wearable.longitude
+      }
+    end
   end
 
   def new
