@@ -19,8 +19,7 @@
         <a class="d-flex align-items-center text-decoration-none" href="/">Home</a>
         <a class="d-flex align-items-center text-decoration-none" href="/wearables" >Wearables</a>
         <div class="d-inline-flex">
-          <span class="d-flex align-items-center m-2"><%= current_user.email %></span>
-
+          <span class="d-flex align-items-center m-2"><%= current_user.email  if user_signed_in? %></span>
             <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               Menu
