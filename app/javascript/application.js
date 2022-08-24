@@ -2,9 +2,8 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
+import { Application } from "@hotwired/stimulus"
 import {flatpickr} from "flatpickr";
 import {init_flatpickr } from "./plugins/init_flatpickr";
-import { Application } from "@hotwired/stimulus"
-
 
   // awesome code

@@ -2,19 +2,10 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
+
 import { application } from "./application"
 
 import HelloController from "./hello_controller"
+import ReviewController from "./review_controller"
 
 application.register("hello", HelloController)
-import { init_flatpickr } from "../plugins/init_flatpickr";
-
-
-// stimulus
-import { Application } from "@hotwired/stimulus"
-import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
-
-
-window.Stimulus = Application.start()
-const context = require.context(".", true, /\.js$/)
-Stimulus.load(definitionsFromContext(context))
