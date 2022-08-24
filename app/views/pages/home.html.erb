@@ -1,3 +1,7 @@
-<div class="bg-img>
-<%= image_tag "home.jpg", class: "w-100" %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "home.jpg"%>);">
+  <div class="container">
+    <h1>Welcome to Wearable</h1>
+    <p>Look awesome without buying anything every again</p>
+    <%= link_to "I like!", wearables_path, class: "btn btn-primary" %>
+  </div>
 </div>
