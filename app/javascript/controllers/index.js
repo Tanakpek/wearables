@@ -12,6 +12,7 @@ application.register("hello", HelloController)
 // stimulus
 import { Application } from "@hotwired/stimulus"
 import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
+import { init_flatpickr } from "../plugins/init_flatpickr";
 
 window.Stimulus = Application.start()
 const context = require.context(".", true, /\.js$/)

@@ -14,7 +14,6 @@ export default class extends Controller {
   add(event){
     const firstselected = false;
     console.log(this.dateTarget)
-
   }
 
   //add(event){
