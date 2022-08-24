@@ -14,13 +14,13 @@
 
   </head>
   <body>
-    <nav class="border-bottom sticky shadow">
+    <nav class="border-bottom sticky  shadow">
       <div class="d-flex justify-content-between p-3">
-        <a class="d-flex align-items-center text-decoration-none" href="/">Home</a>
+        <a class="d-flex align-items-center text-decoration-none mx-2" href="/">Home</a>
         <a class="d-flex align-items-center text-decoration-none" href="/wearables" >Wearables</a>
         <div class="d-inline-flex">
-          <span class="d-flex align-items-center m-2"><%= current_user.email  if user_signed_in? %></span>
-            <div class="dropdown">
+          <span class="d-flex align-items-center m-2"><%= current_user.username  if user_signed_in? %></span>
+            <div class="dropdown mx-3">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               Menu
             </button>
