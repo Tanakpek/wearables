@@ -1,10 +1,10 @@
 
 <div id='flat-booking-dates' data-unavailable="<%= @wearable.unavailable_dates.to_json %>">
-    <% if current_user.id != @wearable.user_id  %>
-       <%= simple_form_for([@wearable, @booking]) do |f| %>
-           <%= f.input :start_date, as: :string, type: :text %>
-           <%= f.input :end_date, as: :string, type: :text %>
-           <%= f.submit "Book", class: "btn btn-primary" %>
-        <% end %>
-    <% end %>
+
+      <%= simple_form_for([@wearable, @booking]) do |f| %>
+          <%= f.input :start_date, as: :string, type: :text %>
+          <%= f.input :end_date, as: :string, type: :text %>
+          <%= f.submit "Book", class: "btn btn-primary" %>
+
+     <% end %>
  </div>
