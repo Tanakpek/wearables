@@ -1,7 +1,6 @@
 
 <div class="d-flex justify-content-between">
   <div>
-
     <h1>This is a wearable</h1>
     <h3> title: <%= @wearable.title %> </h3>
     <h5> description: <%= @wearable.description %> </h5>
@@ -10,10 +9,13 @@
     <h5> category: <%= @wearable.category %> </h5>
     <h5> price: €<%= @wearable.price %> </h5>
 
-  <h5><%= link_to "Edit Wearable", edit_wearable_path(@wearable), class: "btn btn-success" if policy(@wearable).edit? %></h5>
-
-
-    <%= link_to "Get it", new_wearable_booking_path(@wearable), class: "btn btn-primary"  %>
+    <div class="d-flex">
+      <%= link_to "Book it!", new_wearable_booking_path(@wearable), class: "btn btn-primary m-3"  %>
+      <%= link_to "Edit Wearable", edit_wearable_path(@wearable), class: "btn btn-success m-3" if policy(@wearable).edit? %>
+      <%= link_to "Delete", wearable_path(@wearable), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger m-3" if policy(@wearable).edit? %>
+    </div>
   </div>
+
+
   <%= render 'carousel' %>
 </div>

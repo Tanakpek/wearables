@@ -1,6 +1,7 @@
 class Wearable < ApplicationRecord
   belongs_to :user
-  has_many :bookings
+
+  has_many :bookings, dependent: :destroy
 
   def unavailable_dates
     bookings.pluck(:start_date, :end_date).map do |range|
