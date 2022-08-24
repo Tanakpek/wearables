@@ -8,7 +8,7 @@ export default class extends Controller {
   }
 
   toggle() {
-    console.log("hello")
+    console.log("asd");
   }
 
 
