@@ -2,7 +2,7 @@ class Wearable < ApplicationRecord
   belongs_to :user
   has_many :bookings, dependent: :destroy
   has_many_attached :photos
-  validates :brand, :category, :price, :description, :title, :size, :photos, presence: true
+  validates :brand, :category, :price, :description, :title, :size, :photos, :address, presence: true
   validates :category, inclusion: { in: ["watch", "jacket", "glassed"] }
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
