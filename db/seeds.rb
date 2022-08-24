@@ -58,3 +58,13 @@ Booking.create!(user: tan, wearable: w5, start_date: Date.today + 10, end_date: 
 Booking.create!(user: tan, wearable: w6, start_date: Date.today + 6, end_date: Date.today + 8, status: "unconfirmed")
 Booking.create!(user: tan, wearable: w6, start_date: Date.today + 14, end_date: Date.today + 16, status: "confirmed")
 Booking.create!(user: tan, wearable: w6, start_date: Date.today + 30, end_date: Date.today + 50, status: "unconfirmed")
+
+Review.create(booking_id: 1, content: "worst", rating: 2)
+Review.create(booking_id: 2, content: "no comment", rating: 1)
+Review.create(booking_id: 3, content: "meh", rating: 3)
+Review.create(booking_id: 4, content: "worst", rating: 2)
+Review.create(booking_id: 5, content: "not bad", rating: 3)
+Review.create(booking_id: 6, content: "awesome product", rating: 5)
+Review.create(booking_id: 7, content: "easy pick up", rating: 4)
+Review.create(booking_id: 8, content: "good enough", rating: 4)
+Review.create(booking_id: 9, content: "quite bad, actually", rating: 2)

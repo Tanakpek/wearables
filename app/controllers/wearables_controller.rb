@@ -23,7 +23,14 @@ class WearablesController < ApplicationController
   end
 
   def show
-    @wearable = Wearable.find(params[:id])
+    @wearable = Wearable.find_by_id(params[:id])
+    @bookings = Booking.where(wearable: @wearable)
+    @reviews = []
+    @bookings.each do |b|
+      (Review.where(booking: b)).each do |r|
+        @reviews << r
+      end
+    end
     authorize @wearable
   end
 
