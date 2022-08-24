@@ -4,16 +4,11 @@
 
 import { application } from "../application"
 
+import BookingsController from "./bookings_controller"
+application.register("bookings", BookingsController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
-import { init_flatpickr } from "../plugins/init_flatpickr";
 
-
-// stimulus
-import { Application } from "@hotwired/stimulus"
-import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
-
-
-window.Stimulus = Application.start()
-const context = require.context(".", true, /\.js$/)
-Stimulus.load(definitionsFromContext(context))
+import MapController from "./map_controller"
+application.register("map", MapController)
