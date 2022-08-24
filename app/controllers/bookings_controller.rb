@@ -25,6 +25,15 @@ class BookingsController < ApplicationController
     end
   end
 
+  def index
+    @bookings = Booking.where(user: current_user)
+    w = Wearable.where(user: current_user)
+    w.each do |wearable|
+      @bookings += Booking.where(wearable: wearable)
+    end
+
+  end
+
   private
 
   def params_booking
