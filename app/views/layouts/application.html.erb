@@ -14,19 +14,19 @@
 
   </head>
   <body>
-    <nav class="border-bottom sticky">
-      <div class="d-flex justify-content-between d-flex m-4">
-        <a class="d-flex align-items-center text-decoration-none" href="/">Logo</a>
+    <nav class="border-bottom sticky shadow">
+      <div class="d-flex justify-content-between p-3">
+        <a class="d-flex align-items-center text-decoration-none" href="/">Home</a>
         <a class="d-flex align-items-center text-decoration-none" href="/wearables" >Wearables</a>
         <div class="d-inline-flex">
-          <span class="d-flex align-items-center m-2">UserName</span>
+          <span class="d-flex align-items-center m-2"><%= current_user.email %></span>
 
             <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
+              Menu
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Sign Out</a></li>
+              <li><%= link_to "sign-out", destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "dropdown-item" %></li>
               <li><a class="dropdown-item" href="#">My account</a></li>
               <li><a class="dropdown-item" href="#">My bookings</a></li>
             </ul>
