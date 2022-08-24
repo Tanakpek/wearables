@@ -42,6 +42,13 @@ class WearablesController < ApplicationController
     end
   end
 
+  def destroy
+    @wearable = Wearable.find(params[:id])
+    authorize @wearable
+    @wearable.destroy!
+    redirect_to wearables_path, status: :see_other
+  end
+
   private
 
   def params_wearable
