@@ -14,12 +14,12 @@ marius = User.create!(email: "marius@hotmail.com", username: "Marius", password:
 mantas = User.create!(email: "mantas@hotmail.com", username: "Mantas", password: "mantas", admin: true)
 tan = User.create!(email: "tan@hotmail.com", username: "Tan", password: "tantan", admin: true)
 
-w1 = Wearable.new(size: "M", user: marius, brand: "rolex", category: "watch", price: 150, description: "My 1st Rolex watch for rent now", title: "New Rolex watch")
-w2 = Wearable.new(size: "M", user: marius, brand: "levis", category: "jacket", price: 44, description: "My levis jacket", title: "New Levis jacket")
-w3 = Wearable.new(size: "M", user: mantas, brand: "patek philippe", category: "watch", price: 250, description: "A real patek philippe for you to rent", title: "Patek Philippe Watch")
-w4 = Wearable.new(size: "M", user: mantas, brand: "polo", category: "jacket", price: 50, description: "Polo jacket for rent", title: "Awesome Polo Jacket")
-w5 = Wearable.new(size: "M", user: tan, brand: "Audemars", category: "watch", price: 450, description: "Audemars my baby for rent for a cheap price", title: "Watch by Audemars")
-w6 = Wearable.new(size: "M", user: tan, brand: "primarkt", category: "jacket", price: 10, description: "This is my description for my wearable", title: "Renting Primark jacket")
+w1 = Wearable.new(address: "Carrer d'Escipió, 6, Barcelona", size: "M", user: marius, brand: "rolex", category: "watch", price: 150, description: "My 1st Rolex watch for rent now", title: "New Rolex watch")
+w2 = Wearable.new(address: "Carrer d'Escipió, 90, Barcelona", size: "M", user: marius, brand: "levis", category: "jacket", price: 44, description: "My levis jacket", title: "New Levis jacket")
+w3 = Wearable.new(address: "Plaça de Catalunya, Plaça de Catalunya, Barcelona", size: "M", user: mantas, brand: "patek philippe", category: "watch", price: 250, description: "A real patek philippe for you to rent", title: "Patek Philippe Watch")
+w4 = Wearable.new(address: "Plaça Espanya, Barcelona", size: "M", user: mantas, brand: "polo", category: "jacket", price: 50, description: "Polo jacket for rent", title: "Awesome Polo Jacket")
+w5 = Wearable.new(address: "Sant Cugat del Vallès", size: "M", user: tan, brand: "Audemars", category: "watch", price: 450, description: "Audemars my baby for rent for a cheap price", title: "Watch by Audemars")
+w6 = Wearable.new(address: "Badalona Beach, Carrer de Ribas i Perdigó, Badalona", size: "M", user: tan, brand: "primarkt", category: "jacket", price: 10, description: "This is my description for my wearable", title: "Renting Primark jacket")
 
 img_rolex = URI.open("http://res.cloudinary.com/mcgill-university/image/upload/v1661251560/e5flotdm4zzhxkn2wxzk.jpg")
 img_rolex2 = URI.open("http://res.cloudinary.com/mcgill-university/image/upload/v1661252088/jx8qtvlc1xlgj2scxntp.jpg")
