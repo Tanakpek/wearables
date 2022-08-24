@@ -6,6 +6,8 @@ gem 'cloudinary'
 
 gem 'pundit'
 
+gem "geocoder"
+
 #calendar for bookings
 gem "simple_calendar", "~> 2.4"
 
