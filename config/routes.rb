@@ -9,7 +9,10 @@ Rails.application.routes.draw do
 
 
   resources :wearables  do
-    resources :bookings, only: [:new, :create] #dont forget patch
+    resources :bookings, only: [:new, :create]
+    resources :reviews, only: [:new, :create, :edit, :update]
+
+    #dont forget patch
   end
 
   delete '/bookings/:booking_id', to: 'bookings_controller#delete'
