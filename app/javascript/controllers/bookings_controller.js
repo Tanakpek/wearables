@@ -6,7 +6,7 @@ export default class extends Controller {
 
 
   connect() {
-    console.log("movies controller connected")
+    console.log(" connected")
 
   }
 
