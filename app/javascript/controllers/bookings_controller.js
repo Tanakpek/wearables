@@ -14,6 +14,12 @@ export default class extends Controller {
     const firstselected = false;
     console.log(this.dateTarget)
   }
+  reject(){
+    console.log("con");
+  }
+  confirm(){
+    console.log("rej");
+  }
 
   //add(event){
    // console.log(document.querySelectorAll('.day'));
