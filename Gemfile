@@ -4,6 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 #persistent image storage
 gem 'cloudinary'
 
+gem "money-rails"
+gem 'stripe'
+
 gem 'pundit'
 
 gem "geocoder"

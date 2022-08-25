@@ -17,10 +17,12 @@ class BookingsController < ApplicationController
     @booking.wearable = @wearable
 
     if @booking.save
-      redirect_to wearable_path(@wearable)
+      redirect_to booking_path(@booking)
     else
       render :new, status: :unprocessable_entity
     end
+
+
   end
 
   def index
@@ -46,9 +48,18 @@ class BookingsController < ApplicationController
     redirect_to user_bookings_path(current_user)
   end
 
+  def show
+    @booking = Booking.find_by_id(params[:id])
+    authorize @booking
+    @wearable = @booking.wearable
+    authorize @wearable
+  end
+
+
   private
 
   def params_booking
     params.require(:booking).permit(:start_date, :end_date, :wearable_id)
   end
+
 end
