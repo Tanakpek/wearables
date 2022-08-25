@@ -17,7 +17,6 @@ Rails.application.routes.draw do
 
     #dont forget patch
   end
-  resources :bookings, only:[:edit, :update]
 
   delete '/bookings/:booking_id', to: 'bookings_controller#delete'
 end

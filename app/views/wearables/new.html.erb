@@ -1,21 +1,26 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-6 ">
+      <%= simple_form_for(@wearable) do |f| %>
+        <%= f.input :title, as: :string %>
 
-<%= simple_form_for(@wearable) do |f| %>
-  <%= f.input :title, as: :string %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
 
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.input :description, as: :string %>
 
-  <%= f.input :description, as: :string %>
+        <%= f.input :size, as: :string %>
 
-  <%= f.input :size, as: :string %>
+        <%= f.input :brand, as: :string %>
 
-  <%= f.input :brand, as: :string %>
+        <%= f.input :category, as: :string %>
 
-  <%= f.input :category, as: :string %>
+        <%= f.input :price, as: :float %>
 
-  <%= f.input :price, as: :float %>
+        <%= f.input :address, as: :string %>
 
-  <%= f.input :address, as: :string %>
+        <%= f.submit "Submit"%>
 
-  <%= f.submit "Submit"%>
-
-<% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
