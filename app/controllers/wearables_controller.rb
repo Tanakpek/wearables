@@ -12,7 +12,9 @@ class WearablesController < ApplicationController
     @markers = @wearables.geocoded.map do |wearable|
       {
         lat: wearable.latitude,
-        lng: wearable.longitude
+        lng: wearable.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {wearable: wearable}),
+        image_url: helpers.asset_url("logo.png")
       }
     end
   end
