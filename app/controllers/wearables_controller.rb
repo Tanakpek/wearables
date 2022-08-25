@@ -29,6 +29,8 @@ class WearablesController < ApplicationController
 
   def show
     @wearable = Wearable.find_by_id(params[:id])
+    authorize @wearable
+
     @bookings = Booking.where(wearable: @wearable)
     @reviews = []
     @bookings.each do |b|
@@ -36,7 +38,7 @@ class WearablesController < ApplicationController
         @reviews << r
       end
     end
-    authorize @wearable
+    @markers = [{lat: @wearable.geocode[0], lng: @wearable.geocode[1]}]
   end
 
   def update
