@@ -1,34 +1,52 @@
-<div data-controller="review" class='container my-5'>
-  <div class="d-flex justify-content-between">
-    <div>
-      <h1> <strong><%= @wearable.title %> </strong></h3>
-      <h5> <%= @wearable.description %> </h5>
-      <div class="d-flex"><h5 class="text-muted"> size: </h5><h5 class="mx-2"><%= @wearable.size %> </h5> </div>
-      <div class="d-flex"><h5 class="text-muted"> brand: </h5><h5 class="mx-2"><%= @wearable.brand %> </h5></div>
-      <div class="d-flex"><h5 class="text-muted"> category: </h5><h5 class="mx-2"><%= @wearable.category %> </h5></div>
-      <div class="d-flex"><h5 class="text-muted"> price: </h5><h5 class="mx-2">€<%= @wearable.price %> </h5></div>
+<div data-controller="review">
+  <div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-xl-5 bg-white shadow rounded-4 m-3 p-4 d-flex flex-column justify-content-between">
+        <div>
+          <h2> <strong><%= @wearable.title %> </strong></h2>
+          <h5 class="mt-4 mb-4"> <%= @wearable.description %> </h5>
+          <div class="d-flex"><h5 class="text-muted"> size: </h5><h5 class="mx-2"><%= @wearable.size %> </h5> </div>
+          <div class="d-flex"><h5 class="text-muted"> brand: </h5><h5 class="mx-2"><%= @wearable.brand %> </h5></div>
+          <div class="d-flex"><h5 class="text-muted"> category: </h5><h5 class="mx-2"><%= @wearable.category %> </h5></div>
+          <div class="d-flex"><h5 class="text-muted"> price: </h5><h5 class="mx-2">€<%= @wearable.price %> </h5></div>
+        </div>
+        <div>
+          <div class="d-flex justify-content-between">
+            <%= link_to "Book it!", new_wearable_booking_path(@wearable), class: "btn btn-primary m-0 mx-0"  %>
+            <div class="d-flex">
+            <%= link_to "Edit", edit_wearable_path(@wearable), class: "me-1 d-flex align-items-center text-decoration-underline link-secondary" if policy(@wearable).edit? %>
+            <%= link_to "Delete", wearable_path(@wearable), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: " d-flex align-items-center text-decoration-underline link-secondary ms-1" if policy(@wearable).edit? %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-5 bg-white shadow rounded-4 m-3 p-0 justify-content-center" style="height: 600px;">
+      <%= render 'carousel' %>
+      </div>
+      <div class="col-xl-5  bg-white shadow rounded-4 m-3 p-4">
+        <div data-review-target="box" class="" data-action="click->review#toggle">
+          <h3><strong>Reviews</strong></h3>
+            <% @reviews.each do |b| %>
+            <div class="my-3">
+              <h5 class="">- <%= b.content %></h1>
+              <span>
+                <% (0...(b.rating)).each do %>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                <% end %>
+              </span>
+            </div>
+            <% end %>
+        </div>
+      </div>
+      <div class="col-xl-5 bg-white shadow rounded-4 m-3 p-0 align-self-center">
+          <div style="width: 100%; height: 400px;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+            class="rounded-4">
+          </div>
 
-      <div class="d-flex">
-        <%= link_to "Book it!", new_wearable_booking_path(@wearable), class: "btn btn-primary m-3 mx-0"  %>
-        <%= link_to "Edit Wearable", edit_wearable_path(@wearable), class: "m-3 d-flex align-items-center" if policy(@wearable).edit? %>
-        <%= link_to "Delete", wearable_path(@wearable), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: " d-flex align-items-center text-decoration-underline link-danger m-3" if policy(@wearable).edit? %>
       </div>
     </div>
-    <%= render 'carousel' %>
-  </div>
-  <br><br><br>
-  <div id="review_container" data-review-target="box" class="active my-5" data-action="click->review#toggle">
-  <h3><strong>Reviews</strong></h3>
-    <% @reviews.each do |b| %>
-    <div class="my-3">
-      <h5 class="">- <%= b.content %></h1>
-      <span>
-        <% (0...(b.rating)).each do %>
-          <i class="fa fa-star" aria-hidden="true"></i>
-        <% end %>
-      </span>
-      </div>
-
-    <% end %>
   </div>
 </div>
