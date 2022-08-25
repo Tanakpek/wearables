@@ -6,12 +6,5 @@ class BookingPolicy < ApplicationPolicy
       # scope.where("name LIKE 't%'") # If users can only see restaurants starting with `t`
       # ...
     end
-
-  end
-  def update?
-    true
-  end
-  def edit?
-    true
   end
 end
