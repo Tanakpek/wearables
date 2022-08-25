@@ -1,4 +1,4 @@
-class BookingPolicy < ApplicationPolicy
+class ReviewPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all # If users can see all restaurants
@@ -6,12 +6,21 @@ class BookingPolicy < ApplicationPolicy
       # scope.where("name LIKE 't%'") # If users can only see restaurants starting with `t`
       # ...
     end
+  end
 
+  def show?
+    true
   end
+
+  def create?
+    true
+  end
+
   def update?
-    true
+    record.user == user || user.admin?
   end
-  def edit?
-    true
+
+  def destroy?
+    record.user == user || user.admin?
   end
 end

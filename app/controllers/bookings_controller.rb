@@ -32,6 +32,19 @@ class BookingsController < ApplicationController
 
   end
 
+  def edit
+    @booking = Booking.find_by_id(params[:id])
+    authorize @booking
+    raise
+  end
+
+  def update
+    @booking = Booking.find_by_id(params[:id])
+    authorize @booking
+    @booking.update(status: params[:status]) if params[:status]
+    redirect_to user_bookings_path(current_user)
+  end
+
   private
 
   def params_booking
