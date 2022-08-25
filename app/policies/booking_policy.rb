@@ -7,4 +7,11 @@ class BookingPolicy < ApplicationPolicy
       # ...
     end
   end
+
+  def update?
+    true
+  end
+  def edit?
+    true
+  end
 end
