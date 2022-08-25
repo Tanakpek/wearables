@@ -1,7 +1,4 @@
 class BookingsController < ApplicationController
-  def index
-    Booking.all
-  end
 
   def new
     @wearable = Wearable.find_by_id(params[:wearable_id])
@@ -26,6 +23,7 @@ class BookingsController < ApplicationController
   end
 
   def index
+    @bookings = policy_scope(Booking)
     @bookings = Booking.where(user: current_user)
     w = Wearable.where(user: current_user)
     w.each do |wearable|
