@@ -36,6 +36,7 @@ class WearablesController < ApplicationController
         @reviews << r
       end
     end
+    @markers = [{lat: @wearable.geocode[0], lng: @wearable.geocode[1]}]
     authorize @wearable
   end
 
