@@ -2,7 +2,12 @@ class WearablesController < ApplicationController
 
   def index
     @wearables = policy_scope(Wearable)
-    @wearables = Wearable.all
+
+    if params[:query].present?
+      @wearables = Wearable.search_by_title_and_description(params[:query])
+    else
+      @wearables = Wearable.all
+    end
 
     @markers = @wearables.geocoded.map do |wearable|
       {
