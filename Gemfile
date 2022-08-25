@@ -8,6 +8,8 @@ gem 'pundit'
 
 gem "geocoder"
 
+gem "pg_search"
+
 #calendar for bookings
 gem "simple_calendar", "~> 2.4"
 
