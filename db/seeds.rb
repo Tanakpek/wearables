@@ -5,21 +5,21 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+Review.destroy_all
 Booking.destroy_all
 Wearable.destroy_all
 User.destroy_all
-
 
 marius = User.create!(email: "marius@hotmail.com", username: "Marius", password: "marius", admin: true)
 mantas = User.create!(email: "mantas@hotmail.com", username: "Mantas", password: "mantas", admin: true)
 tan = User.create!(email: "tan@hotmail.com", username: "Tan", password: "tantan", admin: true)
 
-w1 = Wearable.new(address: "Carrer d'Escipió, 6, Barcelona", size: "M", user: marius, brand: "rolex", category: "watch", price: 150, description: "My 1st Rolex watch for rent now", title: "New Rolex watch")
+w1 = Wearable.new(address: "Carrer d'Escipió, 6, Barcelona", size: "M", user: marius, brand: "rolex", category: "watch", price: 150, description: "My 1st Rolex watch for rent now, I got it from my grandfather and have tremendous attachement to it, so please don't loose it and take care. Also, wearing a Rolex is super cool, thus, rent it directly to look cool", title: "New Rolex watch")
 w2 = Wearable.new(address: "Carrer d'Escipió, 90, Barcelona", size: "M", user: marius, brand: "levis", category: "jacket", price: 44, description: "My levis jacket", title: "New Levis jacket")
 w3 = Wearable.new(address: "Plaça de Catalunya, Plaça de Catalunya, Barcelona", size: "M", user: mantas, brand: "patek philippe", category: "watch", price: 250, description: "A real patek philippe for you to rent", title: "Patek Philippe Watch")
 w4 = Wearable.new(address: "Plaça Espanya, Barcelona", size: "M", user: mantas, brand: "polo", category: "jacket", price: 50, description: "Polo jacket for rent", title: "Awesome Polo Jacket")
 w5 = Wearable.new(address: "Sant Cugat del Vallès", size: "M", user: tan, brand: "Audemars", category: "watch", price: 450, description: "Audemars my baby for rent for a cheap price", title: "Watch by Audemars")
-w6 = Wearable.new(address: "Badalona Beach, Carrer de Ribas i Perdigó, Badalona", size: "M", user: tan, brand: "primarkt", category: "jacket", price: 10, description: "This is my description for my wearable", title: "Renting Primark jacket")
+w6 = Wearable.new(address: "Carrer de Ribas i Perdigó, Badalona", size: "M", user: tan, brand: "primarkt", category: "jacket", price: 10, description: "This is my description for my wearable", title: "Renting Primark jacket")
 
 img_rolex = URI.open("http://res.cloudinary.com/mcgill-university/image/upload/v1661251560/e5flotdm4zzhxkn2wxzk.jpg")
 img_rolex2 = URI.open("http://res.cloudinary.com/mcgill-university/image/upload/v1661252088/jx8qtvlc1xlgj2scxntp.jpg")
@@ -49,22 +49,26 @@ img_primark = URI.open("http://res.cloudinary.com/mcgill-university/image/upload
 w6.photos.attach(io: img_primark, filename: "primark.png", content_type: "image/png")
 w6.save!
 
-Booking.create!(user: marius, wearable: w1, start_date: Date.today - 29, end_date: Date.today - 10, status: "unconfirmed")
-Booking.create!(user: marius, wearable: w1, start_date: Date.today - 2, end_date: Date.today, status: "confirmed")
-Booking.create!(user: marius, wearable: w2, start_date: Date.today - 2, end_date: Date.today, status: "confirmed")
-Booking.create!(user: mantas, wearable: w3, start_date: Date.today - 5, end_date: Date.today, status: "confirmed")
-Booking.create!(user: mantas, wearable: w4, start_date: Date.today + 10, end_date: Date.today + 20, status: "unconfirmed")
-Booking.create!(user: tan, wearable: w5, start_date: Date.today + 10, end_date: Date.today + 21, status: "unconfirmed")
-Booking.create!(user: tan, wearable: w6, start_date: Date.today + 6, end_date: Date.today + 8, status: "unconfirmed")
-Booking.create!(user: tan, wearable: w6, start_date: Date.today + 14, end_date: Date.today + 16, status: "confirmed")
-Booking.create!(user: tan, wearable: w6, start_date: Date.today + 30, end_date: Date.today + 50, status: "unconfirmed")
+b1 = Booking.create!(user: marius, wearable: w1, start_date: Date.today - 29, end_date: Date.today - 10, status: "unconfirmed")
+b2 = Booking.create!(user: marius, wearable: w1, start_date: Date.today - 2, end_date: Date.today, status: "confirmed")
+b3 = Booking.create!(user: marius, wearable: w2, start_date: Date.today - 2, end_date: Date.today, status: "confirmed")
+b4 = Booking.create!(user: mantas, wearable: w3, start_date: Date.today - 5, end_date: Date.today, status: "confirmed")
+b5 = Booking.create!(user: mantas, wearable: w4, start_date: Date.today + 10, end_date: Date.today + 20, status: "unconfirmed")
+b6 = Booking.create!(user: tan, wearable: w5, start_date: Date.today + 10, end_date: Date.today + 21, status: "unconfirmed")
+b7 = Booking.create!(user: tan, wearable: w6, start_date: Date.today + 6, end_date: Date.today + 8, status: "unconfirmed")
+b8 = Booking.create!(user: tan, wearable: w6, start_date: Date.today + 14, end_date: Date.today + 16, status: "confirmed")
+b9 = Booking.create!(user: tan, wearable: w6, start_date: Date.today + 30, end_date: Date.today + 50, status: "unconfirmed")
 
-Review.create(booking_id: 1, content: "worst", rating: 2)
-Review.create(booking_id: 2, content: "no comment", rating: 1)
-Review.create(booking_id: 3, content: "meh", rating: 3)
-Review.create(booking_id: 4, content: "worst", rating: 2)
-Review.create(booking_id: 5, content: "not bad", rating: 3)
-Review.create(booking_id: 6, content: "awesome product", rating: 5)
-Review.create(booking_id: 7, content: "easy pick up", rating: 4)
-Review.create(booking_id: 8, content: "good enough", rating: 4)
-Review.create(booking_id: 9, content: "quite bad, actually", rating: 2)
+def add_reviews(booking)
+Review.create(booking: booking, content: "Man this watch was great and what a lovely person was Marius", rating: 5)
+Review.create(booking: booking, content: "Great stuff, thanks!", rating: 4)
+Review.create(booking: booking, content: "Just fabulous :))))", rating: 5)
+Review.create(booking: booking, content: "Very honest and great transaction", rating: 4)
+end
+
+add_reviews(b1)
+add_reviews(b3)
+add_reviews(b4)
+add_reviews(b5)
+add_reviews(b6)
+add_reviews(b7)

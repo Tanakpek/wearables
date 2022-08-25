@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :wearable
   belongs_to :user
-  has_one :review
+  has_one :review, dependent: :destroy
   validates :start_date, :end_date, :status, presence: true  #status = pending | current | closed |
   validate :end_date_after_start_date
 
@@ -13,5 +13,6 @@ class Booking < ApplicationRecord
     if end_date < start_date
       errors.add(:end_date, "must be after the start date")
     end
- end
+  end
+
 end
