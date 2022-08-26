@@ -2,7 +2,17 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "home.jpg"%>);">
   <div class="container">
     <h1>Welcome to Wearable</h1>
-    <p>Look awesome without buying anything every again</p>
-    <%= link_to "I like!", wearables_path, class: "btn btn-primary" %>
+    <div id="typewriter"></div>
+      <script src='../../dist/core.js'></script>
+      <script type="text/javascript">
+        const instance = new Typewriter('#typewriter', {
+          strings: ['A revolution which brings the circular economy to the next level', 'Look awesome without buying anything every again!'],
+          autoStart: true,
+          loop: true,
+          deleteSpeed: 10,
+          delay: 25,
+        });
+      </script>
+    <%= link_to "Join the revolution", wearables_path, class: "btn btn-primary mt-5" %>
   </div>
 </div>

@@ -36,5 +36,3 @@ document.addEventListener('turbo:load', function(){
     })
   };
  });
-
-  // awesome code
