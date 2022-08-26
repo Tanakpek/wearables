@@ -8,11 +8,11 @@
 
         <%= f.input :description, as: :string %>
 
-        <%= f.input :size, as: :string %>
+        <%= f.input :size, as: :select, collection: ['S', 'M', 'L', 'XL'] %>
 
         <%= f.input :brand, as: :string %>
 
-        <%= f.input :category, as: :string %>
+        <%= f.input :category, as: :select, collection: ['watch', 'jacket', 'glasses'] %>
 
         <%= f.input :price, as: :float %>
 
