@@ -34,12 +34,7 @@ class WearablesController < ApplicationController
     authorize @wearable
     @review = Review.new
     @bookings = Booking.where(wearable: @wearable)
-    @reviews = []
-    @bookings.each do |b|
-      Review.where(booking: b).each do |r|
-        @reviews << r
-      end
-    end
+    @reviews = @bookings.map {|b| b.review }.reject {|r| r.nil? }
     @markers = [{
       lat: @wearable.geocode[0],
       lng: @wearable.geocode[1],

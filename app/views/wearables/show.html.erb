@@ -1,18 +1,18 @@
-<div>
-<h1>Reviews</h1>
 
-<% @reviews.each do |r| %>
-<p> <%=   r.content %></p>
-<% end %>
+<div data-controller="insert-in-list">
+  <div data-insert-in-list-target="items">
+    <h1>Reviews</h1>
+
+    <% @reviews.each do |review| %>
+    <%  %>
+      <%= render 'review', review: review %>
+    <% end %>
+  </div>
+  <%= render 'reviews/form', wearable: @wearable, review: @review %>
 </div>
 
-<div>
-  <%= simple_form_for([@wearable, @review]) do |r| %>
-  <%= r.input :content, as: :string%>
-  <%= r.input :rating, as: :select, collection: ['1', '2', '3', '4', '5'] %>
-  <%= r.submit%>
-  <% end %>
-</div>
+
+
 
 
 <div data-controller="review">

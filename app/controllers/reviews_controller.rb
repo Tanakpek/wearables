@@ -13,10 +13,15 @@ class ReviewsController < ApplicationController
     @review = Review.new(params_review)
     @review.booking = @wearable.bookings.last
     authorize @review
-    if @review.save!
-      redirect_to wearable_path(@wearable)
-    else
-      render :new, status: :unprocessable_entity
+
+    respond_to do |f|
+      if @review.save!
+        f.html { redirect_to wearable_path(@wearable) }
+        f.json
+      else
+        f.html { render :new, status: :unprocessable_entity }
+        f.json
+      end
     end
   end
 
