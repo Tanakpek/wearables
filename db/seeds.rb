@@ -49,15 +49,15 @@ img_primark = URI.open("http://res.cloudinary.com/mcgill-university/image/upload
 w6.photos.attach(io: img_primark, filename: "primark.png", content_type: "image/png")
 w6.save!
 
-b1 = Booking.create!(user: marius, wearable: w1, start_date: Date.today - 29, end_date: Date.today - 10, status: "unconfirmed")
-b2 = Booking.create!(user: marius, wearable: w1, start_date: Date.today - 2, end_date: Date.today, status: "confirmed")
-b3 = Booking.create!(user: marius, wearable: w2, start_date: Date.today - 2, end_date: Date.today, status: "confirmed")
-b4 = Booking.create!(user: mantas, wearable: w3, start_date: Date.today - 5, end_date: Date.today, status: "confirmed")
+b1 = Booking.create!(user: marius, wearable: w5, start_date: Date.today - 29, end_date: Date.today - 10, status: "unconfirmed")
+b2 = Booking.create!(user: marius, wearable: w6, start_date: Date.today - 2, end_date: Date.today, status: "confirmed")
+b3 = Booking.create!(user: marius, wearable: w3, start_date: Date.today - 2, end_date: Date.today, status: "confirmed")
+b4 = Booking.create!(user: mantas, wearable: w5, start_date: Date.today - 5, end_date: Date.today, status: "confirmed")
 b5 = Booking.create!(user: mantas, wearable: w4, start_date: Date.today + 10, end_date: Date.today + 20, status: "unconfirmed")
-b6 = Booking.create!(user: tan, wearable: w5, start_date: Date.today + 10, end_date: Date.today + 21, status: "unconfirmed")
-b7 = Booking.create!(user: tan, wearable: w6, start_date: Date.today + 6, end_date: Date.today + 8, status: "unconfirmed")
-b8 = Booking.create!(user: tan, wearable: w6, start_date: Date.today + 14, end_date: Date.today + 16, status: "confirmed")
-b9 = Booking.create!(user: tan, wearable: w6, start_date: Date.today + 30, end_date: Date.today + 50, status: "unconfirmed")
+b6 = Booking.create!(user: tan, wearable: w1, start_date: Date.today + 10, end_date: Date.today + 21, status: "unconfirmed")
+b7 = Booking.create!(user: tan, wearable: w3, start_date: Date.today + 6, end_date: Date.today + 8, status: "unconfirmed")
+b8 = Booking.create!(user: tan, wearable: w4, start_date: Date.today + 14, end_date: Date.today + 16, status: "confirmed")
+b9 = Booking.create!(user: tan, wearable: w5, start_date: Date.today + 30, end_date: Date.today + 50, status: "unconfirmed")
 
 def add_reviews(booking)
 Review.create(booking: booking, content: "Man this watch was great and what a lovely person was Marius", rating: 5)
