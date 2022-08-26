@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   get 'reviews/controller'
   devise_for :users
   root to: "pages#home"
@@ -17,6 +19,8 @@ Rails.application.routes.draw do
     #dont forget patch
   end
 
-  resources :bookings, only:[:edit, :update, :show]
+  resources :bookings, only:[:edit, :update, :show] do
+    resources :payments, only: [:new]
+  end
 
 end
