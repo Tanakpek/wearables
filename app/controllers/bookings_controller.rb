@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
         price: price_object,
         quantity: 1
       }],
-      success_url: "https://localhost:3000/wearables",
+      success_url: "https://www.google.com/",
       cancel_url: "https://www.google.com/"
     )
     if @booking.save
