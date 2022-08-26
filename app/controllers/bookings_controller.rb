@@ -30,8 +30,8 @@ class BookingsController < ApplicationController
         price: price_object,
         quantity: 1
       }],
-      success_url: "https://www.google.com/",
-      cancel_url: "https://www.google.com/"
+      success_url: "https://wearables-app.herokuapp.com/wearables",
+      cancel_url: "https://wearables-app.herokuapp.com/wearables"
     )
     if @booking.save
       @booking.update(checkout_session_id: session.id)
