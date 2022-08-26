@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   get 'reviews/controller'
   devise_for :users
   root to: "pages#home"
@@ -16,7 +18,9 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create, :edit, :update]
     #dont forget patch
   end
-  resources :bookings, only:[:edit, :update]
 
-  delete '/bookings/:booking_id', to: 'bookings_controller#delete'
+  resources :bookings, only:[:edit, :update, :show] do
+    resources :payments, only: [:new]
+  end
+
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_24_094526) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_26_105849) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,6 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_24_094526) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "checkout_session_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
     t.index ["wearable_id"], name: "index_bookings_on_wearable_id"
   end
@@ -81,7 +82,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_24_094526) do
   create_table "wearables", force: :cascade do |t|
     t.string "brand"
     t.string "category"
-    t.float "price"
     t.bigint "user_id", null: false
     t.string "description"
     t.string "title"
@@ -92,6 +92,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_24_094526) do
     t.float "latitude"
     t.float "longitude"
     t.string "address"
+    t.integer "price_cents", default: 0, null: false
+    t.string "stripe_id"
     t.index ["user_id"], name: "index_wearables_on_user_id"
   end
 

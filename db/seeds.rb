@@ -14,15 +14,56 @@ marius = User.create!(email: "marius@hotmail.com", username: "Marius", password:
 mantas = User.create!(email: "mantas@hotmail.com", username: "Mantas", password: "mantas", admin: true)
 tan = User.create!(email: "tan@hotmail.com", username: "Tan", password: "tantan", admin: true)
 
-w1 = Wearable.new(address: "Carrer d'Escipió, 6, Barcelona", size: "M", user: marius, brand: "rolex", category: "watch", price: 89, description: "My 1st Rolex watch for rent now, I got it from my grandfather and have tremendous attachement to it, so please don't loose it and take care. Also, wearing a Rolex is super cool, thus, rent it directly to look cool", title: "New Rolex watch")
+
+m1 = Money.new(5,"EUR")
+
+
+w1 = Wearable.new(address: "Carrer d'Escipió, 6, Barcelona", size: "M", user: marius, brand: "rolex", category: "watch", price: 5, description: "My 1st Rolex watch for rent now, I got it from my grandfather and have tremendous attachement to it, so please don't loose it and take care. Also, wearing a Rolex is super cool, thus, rent it directly to look cool", title: "New Rolex watch")
 w2 = Wearable.new(address: "Carrer d'Escipió, 90, Barcelona", size: "M", user: marius, brand: "levis", category: "jacket", price: 21, description: "My levis jacket", title: "New Levis jacket")
 w3 = Wearable.new(address: "Plaça de Catalunya, Plaça de Catalunya, Barcelona", size: "M", user: mantas, brand: "patek philippe", category: "watch", price: 35, description: "A real patek philippe for you to rent", title: "Patek Philippe Watch")
-w4 = Wearable.new(address: "Plaça Espanya, Barcelona", size: "M", user: mantas, brand: "polo", category: "jacket", price: 50, description: "Polo jacket for rent", title: "Awesome Polo Jacket")
+w4 = Wearable.new(address: "Plaça Espanya, Barcelona", size: "M", user: mantas, brand: "polo", category: "jacket", price: 50 , description: "Polo jacket for rent", title: "Awesome Polo Jacket")
 w5 = Wearable.new(address: "Sant Cugat del Vallès", size: "M", user: tan, brand: "Audemars", category: "watch", price: 12, description: "Audemars my baby for rent for a cheap price", title: "Watch by Audemars")
 w6 = Wearable.new(address: "Carrer de Ribas i Perdigó, Badalona", size: "M", user: tan, brand: "primarkt", category: "jacket", price: 0.50, description: "This is my description for my wearable", title: "Renting Primark jacket")
 w7 = Wearable.new(address: "Gracia, Badalona", size: "M", user: tan, brand: "Google", category: "watch", price: 20, description: "Google watch", title: "Google watch")
 w8 = Wearable.new(address: "C/ D'Emília Llorca Martín, 22, 08003 Barcelona", size: "S", user: tan, brand: "Ray Ban", category: "glasses", price: 8, description: "Ray Ban glasses", title: "Ray Ban glasses")
 w9 = Wearable.new(address: "La Sagrera, Barcelona", size: "S", user: tan, brand: "Oakley", category: "glasses", price: 12, description: "Oakley", title: "Oakley")
+
+
+sid = Stripe::Product.create({name: w1.title})
+sid = sid.to_s
+sid = JSON.parse(sid)
+w1.stripe_id = sid["id"]
+
+
+sid = Stripe::Product.create({name: w2.title})
+sid = sid.to_s
+sid = JSON.parse(sid)
+w2.stripe_id = sid["id"]
+
+
+sid = Stripe::Product.create({name: w3.title})
+sid = sid.to_s
+sid = JSON.parse(sid)
+w3.stripe_id = sid["id"]
+
+
+sid = Stripe::Product.create({name: w4.title})
+sid = sid.to_s
+sid = JSON.parse(sid)
+w4.stripe_id = sid["id"]
+
+
+sid = Stripe::Product.create({name: w5.title})
+sid = sid.to_s
+sid = JSON.parse(sid)
+w5.stripe_id = sid["id"]
+
+
+sid = Stripe::Product.create({name: w6.title})
+sid = sid.to_s
+sid = JSON.parse(sid)
+w6.stripe_id = sid["id"]
+
 
 img_watch = URI.open("http://res.cloudinary.com/mcgill-university/image/upload/v1661517576/m2khublqibypet7doxik.jpg")
 w9.photos.attach(io: img_watch, filename: "watch9.png", content_type: "image/png")
