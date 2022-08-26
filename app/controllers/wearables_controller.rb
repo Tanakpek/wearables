@@ -31,15 +31,16 @@ class WearablesController < ApplicationController
 
   def show
     @wearable = Wearable.find_by_id(params[:id])
-    @bookings = Booking.where(wearable: @wearable)
-    @reviews = []
-    @bookings.each do |b|
-      (Review.where(booking: b)).each do |r|
-        @reviews << r
-      end
-    end
-    @markers = [{lat: @wearable.geocode[0], lng: @wearable.geocode[1]}]
     authorize @wearable
+    @review = Review.new
+    @bookings = Booking.where(wearable: @wearable)
+    @reviews = @bookings.map {|b| b.reviews }.reject {|r| r.nil? }.flatten
+    @markers = [{
+      lat: @wearable.geocode[0],
+      lng: @wearable.geocode[1],
+      info_window: render_to_string(partial: "info_window", locals: {wearable: @wearable}),
+      image_url: helpers.asset_url("logo.png")
+    }]
   end
 
   def update
