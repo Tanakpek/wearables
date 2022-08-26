@@ -1,9 +1,9 @@
 
 
 
-<div class="container mx-auto card round">
+<div class="container mx-auto card my-5">
   <div class="row py-4">
-    <div class="col-md-3"><%= cl_image_tag @booking.wearable.photos[0].key, height: 150, width: 150, radius: 10 %></div>
+    <div class="col-md-3"><%= cl_image_tag @booking.wearable.photos[0].key, height: 250, width: 250, radius: 15 %></div>
     <div class="col">
       <h1>Checkout summary</h1>
       <p>Booking of <strong><%= @booking.wearable.title %></strong> for <strong><%= humanized_money_with_symbol @booking.wearable.price %></strong></p>
@@ -14,9 +14,11 @@
         const paymentButton = document.getElementById('pay');
         paymentButton.addEventListener('click', () => {
           const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+          const a = '<% @booking.update(status:"unconfirmed") %>'
           stripe.redirectToCheckout({
             sessionId: '<%= @booking.checkout_session_id %>'
           });
+
         });
 
       </script>

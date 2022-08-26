@@ -3,4 +3,9 @@ class PaymentsController < ApplicationController
     @booking = current_user.bookings.where(status: 'pending').find(params[:booking_id])
     authorize @booking
   end
+
+  def done
+    @booking = current_user.bookings.where(status: 'pending').find(params[:booking_id])
+    authorize @booking
+  end
 end

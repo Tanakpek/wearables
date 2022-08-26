@@ -12,4 +12,7 @@ class PaymentPolicy < ApplicationPolicy
     true
   end
 
+  def done?
+    true
+  end
 end
