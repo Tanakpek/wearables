@@ -1,3 +1,5 @@
+require 'json'
+
 class WearablesController < ApplicationController
 
   def index
@@ -56,8 +58,14 @@ class WearablesController < ApplicationController
 
   def create
     @wearable = Wearable.new(params_wearable)
-    @wearable.user = current_user
     authorize @wearable
+    sid = Stripe::Product.create({name: @wearable.title})
+    sid = sid.to_s
+    sid = JSON.parse(sid)
+    @wearable.stripe_id = sid["id"]
+    @wearable.user = current_user
+
+
     if @wearable.save
       redirect_to wearable_path(@wearable)
     else
