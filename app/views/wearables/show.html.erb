@@ -31,7 +31,7 @@
       </div>
       <div  class="col-xl-5  bg-white shadow rounded-4 m-3 p-4" data-controller="insert-in-list">
           <div data-insert-in-list-target="items">
-            <h2> <strong> Reviews </strong></h2>
+            <h2> <strong> Last 4 Reviews </strong></h2>
             <% @reviews.last(4).each do |review| %>
             <%  %>
               <%= render 'review', review: review %>
