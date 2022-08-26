@@ -1,6 +1,7 @@
 
 class BookingsController < ApplicationController
 
+
   def new
     @wearable = Wearable.find_by_id(params[:wearable_id])
     authorize @wearable
@@ -12,17 +13,32 @@ class BookingsController < ApplicationController
     @wearable = Wearable.find_by_id(params[:wearable_id])
     authorize @wearable
     @booking = Booking.new(params_booking)
-    @booking.status = "unconfirmed"
+    @booking.status = "pending"
     @booking.user = current_user
     @booking.wearable = @wearable
 
+    price_object = Stripe::Price.create({
+      unit_amount: @wearable.price_cents,
+      currency: 'eur',
+      product: @wearable.stripe_id,
+    })
+
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      mode: 'payment',
+      line_items: [{
+        price: price_object,
+        quantity: 1
+      }],
+      success_url: "https://localhost:3000/wearables",
+      cancel_url: "https://www.google.com/"
+    )
     if @booking.save
-      redirect_to booking_path(@booking)
+      @booking.update(checkout_session_id: session.id)
+      redirect_to new_booking_payment_path(@booking)
     else
       render :new, status: :unprocessable_entity
     end
-
-
   end
 
   def index
