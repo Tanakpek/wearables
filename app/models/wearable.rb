@@ -3,7 +3,7 @@ class Wearable < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many_attached :photos
   validates :brand, :category, :price, :description, :title, :size, :photos, :address, presence: true
-  validates :category, inclusion: { in: ["watch", "jacket", "glassed"] }
+  validates :category, inclusion: { in: ["watch", "jacket", "glasses"] }
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   def unavailable_dates
@@ -14,6 +14,6 @@ class Wearable < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_title_and_description,
-    against: [ :title, :description ],
+    against: [ :title, :description, :category ],
     using: { tsearch: { prefix: true } }
 end

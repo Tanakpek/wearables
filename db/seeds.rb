@@ -20,11 +20,20 @@ w3 = Wearable.new(address: "Plaça de Catalunya, Plaça de Catalunya, Barcelona"
 w4 = Wearable.new(address: "Plaça Espanya, Barcelona", size: "M", user: mantas, brand: "polo", category: "jacket", price: 50, description: "Polo jacket for rent", title: "Awesome Polo Jacket")
 w5 = Wearable.new(address: "Sant Cugat del Vallès", size: "M", user: tan, brand: "Audemars", category: "watch", price: 12, description: "Audemars my baby for rent for a cheap price", title: "Watch by Audemars")
 w6 = Wearable.new(address: "Carrer de Ribas i Perdigó, Badalona", size: "M", user: tan, brand: "primarkt", category: "jacket", price: 0.50, description: "This is my description for my wearable", title: "Renting Primark jacket")
+w7 = Wearable.new(address: "Gracia, Badalona", size: "M", user: tan, brand: "Google", category: "watch", price: 20, description: "Google watch", title: "Google watch")
+w8 = Wearable.new(address: "C/ D'Emília Llorca Martín, 22, 08003 Barcelona", size: "S", user: tan, brand: "Ray Ban", category: "glasses", price: 8, description: "Ray Ban glasses", title: "Ray Ban glasses")
+w9 = Wearable.new(address: "La Sagrera, Barcelona", size: "S", user: tan, brand: "Oakley", category: "glasses", price: 12, description: "Oakley", title: "Oakley")
 
-img_rolex = URI.open("http://res.cloudinary.com/mcgill-university/image/upload/v1661251560/e5flotdm4zzhxkn2wxzk.jpg")
+img_watch = URI.open("http://res.cloudinary.com/mcgill-university/image/upload/v1661517576/m2khublqibypet7doxik.jpg")
+w9.photos.attach(io: img_watch, filename: "watch9.png", content_type: "image/png")
+w9.save!
+
+img_rolex = URI.open("http://res.cloudinary.com/mcgill-university/image/upload/v1661516856/mohw9luel3ry2vjf06eg.jpg")
+img_rolex3 = URI.open("http://res.cloudinary.com/mcgill-university/image/upload/v1661251560/e5flotdm4zzhxkn2wxzk.jpg")
 img_rolex2 = URI.open("http://res.cloudinary.com/mcgill-university/image/upload/v1661252088/jx8qtvlc1xlgj2scxntp.jpg")
 w1.photos.attach(io: img_rolex, filename: "nes.png", content_type: "image/png")
 w1.photos.attach(io: img_rolex2, filename: "nes1.png", content_type: "image/png")
+w1.photos.attach(io: img_rolex3, filename: "nes2.png", content_type: "image/png")
 w1.save!
 
 img_levis = URI.open("https://img01.ztat.net/article/spp-media-p1/84ea53c2043b3517ae1cc00a1d7ccd28/82f33face4044459b1dd647ab14b1bed.jpg?imwidth=762&filter=packshot&imformat=jpeg")
@@ -48,6 +57,14 @@ w5.save!
 img_primark = URI.open("http://res.cloudinary.com/mcgill-university/image/upload/v1661256287/vynnzu0k38xomnezhyyf.jpg")
 w6.photos.attach(io: img_primark, filename: "primark.png", content_type: "image/png")
 w6.save!
+
+img_g1 = URI.open("http://res.cloudinary.com/mcgill-university/image/upload/v1661517057/eu0q2u8uny1ge7pzi2ud.webp")
+w7.photos.attach(io: img_g1, filename: "g.png", content_type: "image/png")
+w7.save!
+
+img_dog = URI.open("http://res.cloudinary.com/mcgill-university/image/upload/v1661517334/hw02sbzldx6mvptbnpas.jpg")
+w8.photos.attach(io: img_dog, filename: "dog.png", content_type: "image/png")
+w8.save!
 
 b1 = Booking.create!(user: marius, wearable: w5, start_date: Date.today - 29, end_date: Date.today - 10, status: "unconfirmed")
 b2 = Booking.create!(user: marius, wearable: w6, start_date: Date.today - 2, end_date: Date.today, status: "confirmed")
