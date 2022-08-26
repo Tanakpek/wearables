@@ -4,5 +4,5 @@
     }) do |r| %>
   <%= r.input :content, as: :string%>
   <%= r.input :rating, as: :select, collection: ['1', '2', '3', '4', '5'] %>
-  <%= r.submit%>
+  <%= r.button :submit, "Leave review", class: "btn btn-primary"%>
   <% end %>
